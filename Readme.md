@@ -23,6 +23,22 @@ make run
 
 The server listens on the port defined by the `PORT` environment variable (default `8080`).
 
+### Configuration
+
+Environment variables can be specified in a `.env` file. Create an optional `.env.local` to override values locally; it is ignored by git. The Makefile automatically loads these files.
+
+The following variables are recognized:
+
+```
+PORT
+DB_HOST
+DB_PORT
+DB_USER
+DB_PASSWORD
+DB_NAME
+DATABASE_URL
+```
+
 ### Database Migrations
 
 Set `DATABASE_URL` and run:

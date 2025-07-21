@@ -4,25 +4,19 @@ import (
 	"context"
 	"log"
 	"net/http"
-	"os"
+
+	"github.com/example/treasurer/internal/config"
 )
 
 type Server struct {
 	httpServer *http.Server
 }
 
-func New() *Server {
-	addr := ":" + getEnv("PORT", "8080")
+func New(cfg *config.Config) *Server {
+	addr := ":" + cfg.Port
 	mux := http.NewServeMux()
 	// Register handlers here in the future
 	return &Server{httpServer: &http.Server{Addr: addr, Handler: mux}}
-}
-
-func getEnv(key, fallback string) string {
-	if v := os.Getenv(key); v != "" {
-		return v
-	}
-	return fallback
 }
 
 func (s *Server) Start() error {

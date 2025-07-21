@@ -1,5 +1,15 @@
 APP_NAME=treasurer
 
+# Load environment variables
+ifneq (,$(wildcard .env))
+    include .env
+    export
+endif
+ifneq (,$(wildcard .env.local))
+    include .env.local
+    export
+endif
+
 .PHONY: build run fmt test migrate-up migrate-down
 
 fmt:
