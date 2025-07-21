@@ -10,7 +10,7 @@ ifneq (,$(wildcard .env.local))
     export
 endif
 
-.PHONY: build run fmt test migrate-up migrate-down
+.PHONY: build run fmt test migrate-up migrate-down migrate-new
 
 fmt:
 	gofmt -w $(shell find . -name '*.go')
@@ -32,3 +32,15 @@ migrate-up:
 
 migrate-down:
 	go run ./cmd/migrate -dir internal/database/migrations -down
+
+# Create a new pair of up and down migration files.
+# Usage: make migrate-new name=create_users_table
+migrate-new:
+	@if [ -z "$(name)" ]; then \
+	echo "usage: make migrate-new name=description"; \
+	exit 1; \
+	fi; \
+       ts=`date +%Y%m%d%H%M%S`; \
+       touch internal/database/migrations/$${ts}_$(name).up.sql; \
+       touch internal/database/migrations/$${ts}_$(name).down.sql; \
+       echo "Created $${ts}_$(name).up.sql and $${ts}_$(name).down.sql"
