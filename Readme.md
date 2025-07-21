@@ -60,5 +60,10 @@ make migrate-new name=add_users_table
 ```
 
 This will generate timestamped `*.up.sql` and `*.down.sql` files in the
-`internal/database/migrations` directory.
+`internal/database/migrations` directory. For example:
+
+```text
+Created 20240101120000_add_users_table.up.sql and 20240101120000_add_users_table.down.sql
+```
+
 

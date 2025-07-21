@@ -40,7 +40,7 @@ migrate-new:
 	echo "usage: make migrate-new name=description"; \
 	exit 1; \
 	fi; \
-	ts=`date +%Y%m%d%H%M%S`; \
-	touch internal/database/migrations/$$ts_$(name).up.sql; \
-	touch internal/database/migrations/$$ts_$(name).down.sql; \
-	echo "Created $$ts_$(name).up.sql and $$ts_$(name).down.sql"
+       ts=`date +%Y%m%d%H%M%S`; \
+       touch internal/database/migrations/$${ts}_$(name).up.sql; \
+       touch internal/database/migrations/$${ts}_$(name).down.sql; \
+       echo "Created $${ts}_$(name).up.sql and $${ts}_$(name).down.sql"
