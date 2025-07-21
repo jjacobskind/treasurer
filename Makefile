@@ -18,6 +18,9 @@ fmt:
 build:
 	go build -o bin/$(APP_NAME) ./cmd/server
 
+migrate-build:
+	go build -o bin/migrate ./cmd/migrate
+
 run:
 	go run ./cmd/server
 
@@ -25,7 +28,7 @@ test:
 	go test ./...
 
 migrate-up:
-	migrate -path internal/database/migrations -database $$DATABASE_URL up
+	go run ./cmd/migrate -dir internal/database/migrations
 
 migrate-down:
-	migrate -path internal/database/migrations -database $$DATABASE_URL down
+	go run ./cmd/migrate -dir internal/database/migrations -down
