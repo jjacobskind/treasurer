@@ -1,7 +1,7 @@
 -- budgets table
 CREATE TABLE budgets (
-    period_id CHAR(7) REFERENCES periods(period_id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    gl_account VARCHAR(10) REFERENCES gl_accounts(gl_account) ON UPDATE CASCADE ON DELETE RESTRICT,
+    period_id CHAR(7) REFERENCES periods(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    gl_account VARCHAR(10) REFERENCES gl_accounts(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     budget_amount NUMERIC(14,2),
     created_at TIMESTAMPTZ DEFAULT now(),
     updated_at TIMESTAMPTZ DEFAULT now(),

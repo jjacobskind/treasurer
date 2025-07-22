@@ -1,11 +1,11 @@
 -- ap_invoices table
 CREATE TABLE ap_invoices (
-    ap_invoice_id SERIAL PRIMARY KEY,
-    vendor_id INT REFERENCES vendors(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    id BIGSERIAL PRIMARY KEY,
+    vendor_id BIGINT REFERENCES vendors(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     invoice_number VARCHAR(40),
     invoice_date DATE,
     due_date DATE,
-    gl_account_default VARCHAR(10) REFERENCES gl_accounts(gl_account) ON UPDATE CASCADE ON DELETE RESTRICT,
+    gl_account_default VARCHAR(10) REFERENCES gl_accounts(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     amount_total NUMERIC(14,2),
     amount_open NUMERIC(14,2),
     pdf_ref VARCHAR(60),
@@ -18,7 +18,7 @@ CREATE TABLE ap_invoices (
 CREATE INDEX idx_ap_invoices_vendor_id ON ap_invoices(vendor_id);
 CREATE INDEX idx_ap_invoices_gl_account_default ON ap_invoices(gl_account_default);
 COMMENT ON TABLE ap_invoices IS 'Accounts payable invoices';
-COMMENT ON COLUMN ap_invoices.ap_invoice_id IS 'Primary key';
+COMMENT ON COLUMN ap_invoices.id IS 'Primary key';
 COMMENT ON COLUMN ap_invoices.vendor_id IS 'Vendor for this invoice';
 COMMENT ON COLUMN ap_invoices.invoice_number IS 'Vendor invoice number';
 COMMENT ON COLUMN ap_invoices.invoice_date IS 'Invoice date';

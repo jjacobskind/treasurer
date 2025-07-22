@@ -1,7 +1,7 @@
 -- cash_account_summaries table
 CREATE TABLE cash_account_summaries (
-    period_id CHAR(7) REFERENCES periods(period_id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    bank_account_id INT REFERENCES bank_accounts(bank_account_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    period_id CHAR(7) REFERENCES periods(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    bank_account_id BIGINT REFERENCES bank_accounts(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     begin_balance NUMERIC(14,2),
     receipts NUMERIC(14,2),
     disbursements NUMERIC(14,2),

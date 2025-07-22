@@ -1,7 +1,7 @@
 -- ar_unit_monthlies table
 CREATE TABLE ar_unit_monthlies (
-    unit_id VARCHAR(10) REFERENCES units(unit_id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    period_id CHAR(7) REFERENCES periods(period_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    unit_id VARCHAR(10) REFERENCES units(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    period_id CHAR(7) REFERENCES periods(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     charges NUMERIC(14,2),
     payments NUMERIC(14,2),
     ending_balance NUMERIC(14,2),

@@ -1,7 +1,7 @@
 -- payment_applies table
 CREATE TABLE payment_applies (
-    payment_id INT REFERENCES payments(payment_id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    ap_invoice_id INT REFERENCES ap_invoices(ap_invoice_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    payment_id BIGINT REFERENCES payments(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    ap_invoice_id BIGINT REFERENCES ap_invoices(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     amount_applied NUMERIC(14,2),
     created_at TIMESTAMPTZ DEFAULT now(),
     updated_at TIMESTAMPTZ DEFAULT now(),
