@@ -1,6 +1,6 @@
 -- vendors table
 CREATE TABLE vendors (
-    vendor_id BIGSERIAL PRIMARY KEY,
+    vendor_id SERIAL PRIMARY KEY,
     legal_name VARCHAR(120) UNIQUE,
     remit_address TEXT,
     created_at TIMESTAMPTZ DEFAULT now(),

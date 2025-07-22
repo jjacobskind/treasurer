@@ -1,6 +1,6 @@
 -- journal_entries table
 CREATE TABLE journal_entries (
-    journal_entry_id BIGSERIAL PRIMARY KEY,
+    journal_entry_id SERIAL PRIMARY KEY,
     period_id CHAR(7) REFERENCES periods(period_id) ON UPDATE CASCADE ON DELETE RESTRICT,
     entry_date DATE,
     memo TEXT,

@@ -1,6 +1,6 @@
 -- bank_accounts table
 CREATE TABLE bank_accounts (
-    bank_account_id BIGSERIAL PRIMARY KEY,
+    bank_account_id SERIAL PRIMARY KEY,
     bank_name VARCHAR(60),
     acct_last4 CHAR(4),
     acct_type VARCHAR(20),

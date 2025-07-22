@@ -1,11 +1,11 @@
 -- payments table
 CREATE TYPE payment_method AS ENUM ('CHECK', 'ACH', 'WIRE', 'CASH', 'AUTODB');
 CREATE TABLE payments (
-    payment_id BIGSERIAL PRIMARY KEY,
-    bank_account_id BIGINT REFERENCES bank_accounts(bank_account_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    payment_id SERIAL PRIMARY KEY,
+    bank_account_id INT REFERENCES bank_accounts(bank_account_id) ON UPDATE CASCADE ON DELETE RESTRICT,
     payment_date DATE,
     method payment_method,
-    vendor_id BIGINT REFERENCES vendors(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    vendor_id INT REFERENCES vendors(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT,
     amount NUMERIC(14,2),
     cleared_flag BOOLEAN,
     reference_no VARCHAR(20),

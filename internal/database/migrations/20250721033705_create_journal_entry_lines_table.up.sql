@@ -1,7 +1,7 @@
 -- journal_entry_lines table
 CREATE TABLE journal_entry_lines (
-    journal_entry_line_id BIGSERIAL PRIMARY KEY,
-    journal_entry_id BIGINT REFERENCES journal_entries(journal_entry_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    journal_entry_line_id SERIAL PRIMARY KEY,
+    journal_entry_id INT REFERENCES journal_entries(journal_entry_id) ON UPDATE CASCADE ON DELETE RESTRICT,
     gl_account VARCHAR(10) REFERENCES gl_accounts(gl_account) ON UPDATE CASCADE ON DELETE RESTRICT,
     debit NUMERIC(14,2) NOT NULL DEFAULT 0,
     credit NUMERIC(14,2) NOT NULL DEFAULT 0,

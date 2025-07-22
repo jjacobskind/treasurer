@@ -1,7 +1,7 @@
 -- ap_invoices table
 CREATE TABLE ap_invoices (
-    ap_invoice_id BIGSERIAL PRIMARY KEY,
-    vendor_id BIGINT REFERENCES vendors(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    ap_invoice_id SERIAL PRIMARY KEY,
+    vendor_id INT REFERENCES vendors(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT,
     invoice_number VARCHAR(40),
     invoice_date DATE,
     due_date DATE,
